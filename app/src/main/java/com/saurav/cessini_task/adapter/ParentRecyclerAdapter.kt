@@ -22,6 +22,10 @@ class ParentRecyclerAdapter(private val context: Context,private val parentList:
         holder.childRecyclerAdapter=ChildRecyclerAdapter(context,parentList,position)
         holder.recyclerViewChild.adapter=holder.childRecyclerAdapter
         holder.recyclerViewChild.layoutManager=holder.layoutManager
+
+        if(position==0)
+            holder.textViewTitle.visibility=View.GONE
+
     }
 
     override fun getItemCount(): Int {

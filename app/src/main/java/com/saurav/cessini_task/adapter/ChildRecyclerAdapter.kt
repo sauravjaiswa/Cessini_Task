@@ -11,6 +11,10 @@ class ChildRecyclerAdapter(private val context: Context, private val parentList:
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildViewHolder {
         return when (pos) {
             0 -> {
+                val view= LayoutInflater.from(parent.context).inflate(R.layout.child_item_3, parent, false)
+                ChildViewHolder(view)
+            }
+            1 -> {
                 val view= LayoutInflater.from(parent.context).inflate(R.layout.child_item_1, parent, false)
                 ChildViewHolder(view)
             }
@@ -22,6 +26,12 @@ class ChildRecyclerAdapter(private val context: Context, private val parentList:
     }
 
     override fun onBindViewHolder(holder: ChildViewHolder, position: Int) {
+        if(pos==0){
+            if(position%2==0)
+                holder.imageView.setImageResource(R.drawable.demo_pic2)
+            else
+                holder.imageView.setImageResource(R.drawable.demo_pic3)
+        }
 
     }
 
